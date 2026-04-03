@@ -150,7 +150,7 @@ python predict.py
 
 ---
 
-## 📚 References
+## � References
 
 1. **Image-to-Image Translation with Conditional Adversarial Networks**
 2. TensorFlow Documentation
