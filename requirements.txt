@@ -1,1 +1,12 @@
 tensorflow
+numpy
+opencv-python-headless
+matplotlib
+pillow
+
+torch --index-url https://download.pytorch.org/whl/cpu
+torchvision
+
+streamlit
+
+python-dotenv
