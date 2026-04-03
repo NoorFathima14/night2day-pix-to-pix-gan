@@ -2,6 +2,7 @@ tensorflow==2.19.0
 numpy==1.26.4
 opencv-python==4.11.0.86
 matplotlib==3.10.1
+streamlit==1.44.1
 
 fastapi==0.115.0
 uvicorn==0.30.6
