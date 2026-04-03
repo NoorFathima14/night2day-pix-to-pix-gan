@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+model/
+maps/
+
+.DS_Store
+
+static/input.png
+static/output.png
+
+.env
