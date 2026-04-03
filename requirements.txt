@@ -1,0 +1,13 @@
+tensorflow==2.19.0
+numpy==1.26.4
+opencv-python==4.11.0.86
+matplotlib==3.10.1
+
+fastapi==0.115.0
+uvicorn==0.30.6
+python-multipart==0.0.9
+
+datasets==2.19.0
+pillow==10.3.0
+
+python-dotenv==1.0.1
