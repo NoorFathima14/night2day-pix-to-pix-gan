@@ -1,13 +1,11 @@
-numpy==1.26.4
-opencv-python==4.11.0.86
-matplotlib==3.10.1
-streamlit==1.44.1
+numpy
+opencv-python-headless
+matplotlib
+pillow
 
-fastapi==0.115.0
-uvicorn==0.30.6
-python-multipart==0.0.9
+torch --index-url https://download.pytorch.org/whl/cpu
+torchvision
 
-datasets==2.19.0
-pillow==10.3.0
+streamlit
 
-python-dotenv==1.0.1
+python-dotenv
