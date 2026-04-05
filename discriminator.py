@@ -7,14 +7,12 @@ from keras.initializers import RandomNormal
 
 class Discriminator:
     def __init__(self):
-        # FIX: Discriminator no longer imports Generator or reuses its blocks.
-        # It owns its initializer and builds its own downscale blocks.
+
         self.initializer = RandomNormal(stddev=0.02, seed=42)
 
     def downscale(self, filters, batch_norm=True):
         """
         PatchGAN discriminator block: Conv -> BN (optional) -> LeakyReLU
-        FIX: Uses correct Conv -> BN -> LeakyReLU ordering with RandomNormal init.
         The first layer skips BN as per the original Pix2Pix spec.
         """
         layers = [
@@ -36,10 +34,9 @@ class Discriminator:
         image  = Input(shape=(128, 128, 3), name="ImageInput")
         target = Input(shape=(128, 128, 3), name="TargetInput")
 
-        x = concatenate([image, target])  # (256, 256, 6)
+        x = concatenate([image, target])  
 
-        # FIX: Full 4-stage PatchGAN: C64 -> C128 -> C256 -> C512
-        # Original was missing the C256 stage, shrinking the receptive field.
+        # Full 4-stage PatchGAN: C64 -> C128 -> C256 -> C512
         x = self.downscale(64,  batch_norm=False)(x)   # (128, 128, 64)  — no BN on first layer
         x = self.downscale(128)(x)                     # (64,  64,  128)
         x = self.downscale(256)(x)                     # (32,  32,  256)

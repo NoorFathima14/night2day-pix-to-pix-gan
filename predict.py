@@ -4,19 +4,13 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 from PIL import Image
 
-# ---------------------------------------------------------------------------
-# Config
-# ---------------------------------------------------------------------------
-VAL_DIR       = 'night2day/val'   # local folder if you downloaded manually
+
+VAL_DIR       = 'night2day/val'   
 MODEL_PATH    = 'model/GAN_Generator.keras'
 IMG_SIZE      = 256
 NUM_SAMPLES   = 5
-USE_HUGGINGFACE = True   # Set False if using local files instead
+USE_HUGGINGFACE = True   
 
-
-# ---------------------------------------------------------------------------
-# Data loading
-# ---------------------------------------------------------------------------
 
 def load_from_huggingface(num_samples=NUM_SAMPLES):
     """
@@ -95,10 +89,6 @@ def _to_display(arr):
     return np.clip(((arr + 1.0) * 127.5), 0, 255).astype(np.uint8)
 
 
-# ---------------------------------------------------------------------------
-# Visualisation
-# ---------------------------------------------------------------------------
-
 def show_predictions(generator, night_images, day_images, num_samples=NUM_SAMPLES):
     """
     For num_samples random images, show:
@@ -128,11 +118,6 @@ def show_predictions(generator, night_images, day_images, num_samples=NUM_SAMPLE
 
         plt.tight_layout()
         plt.show()
-
-
-# ---------------------------------------------------------------------------
-# Main
-# ---------------------------------------------------------------------------
 
 def main():
     # 1. Load model

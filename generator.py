@@ -29,7 +29,6 @@ class Generator:
         Decoder block: ConvTranspose -> BN -> (optional Dropout 0.5) -> ReLU
         Dropout is applied to the first 3 decoder layers as per the Pix2Pix paper
         to introduce stochastic variation and prevent blurry outputs.
-        FIX: Removed the redundant LeakyReLU that was before ReLU in the original.
         """
         layers = [
             Conv2DTranspose(
