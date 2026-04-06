@@ -37,10 +37,10 @@ class Discriminator:
         x = concatenate([image, target])  
 
         # Full 4-stage PatchGAN: C64 -> C128 -> C256 -> C512
-        x = self.downscale(64,  batch_norm=False)(x)   # (128, 128, 64)  — no BN on first layer
-        x = self.downscale(128)(x)                     # (64,  64,  128)
-        x = self.downscale(256)(x)                     # (32,  32,  256)
-        x = self.downscale(512)(x)                     # (16,  16,  512)
+        x = self.downscale(64,  batch_norm=False)(x)   # (64, 64, 64)  — no BN on first layer
+        x = self.downscale(128)(x)                     # (32,  32,  128)
+        x = self.downscale(256)(x)                     # (16,  16,  256)
+        x = self.downscale(512)(x)                     # (8,  8,  512)
 
         # Stride-1 conv to increase depth before final patch prediction
         x = Conv2D(512, kernel_size=4, strides=1, padding='same',
